@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Products {
+  catalogNumber String     @unique
+  productName String?
+  amount  String
+  sqCategory  String
+
+}
+
+model isinData {
+  CatalogNumber String @unique
+  ProductName String?
+  Amount  String?
+  SQCategory  String?
+
+}
