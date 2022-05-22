@@ -1,13 +1,11 @@
-
 import { isinData } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Table from "../../components/Table";
 import prisma from "../../lib/prismaClient";
 
 type Props = {
-    isinData: isinData[];
-  };
-  
+  isinData: isinData[];
+};
 
 const IsinList = ({ isinData }: Props) => {
   return (
@@ -19,7 +17,10 @@ const IsinList = ({ isinData }: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  console.log(context.query);
+  console.log("otekisi");
+  console.log(context);
   const isinData = await prisma.isinData.findMany();
 
   return { props: { isinData: JSON.parse(JSON.stringify(isinData)) } };
