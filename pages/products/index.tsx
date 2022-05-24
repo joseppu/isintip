@@ -19,10 +19,10 @@ const IsinList = ({ isinData }: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log(context.query);
-  console.log("otekisi");
-  console.log(context);
-  const isinData = await prisma.isinData.findMany();
 
+  const isinCount = await prisma.isinData.count()
+  console.log(isinCount)
+  const isinData = await prisma.isinData.findMany();
   return { props: { isinData: JSON.parse(JSON.stringify(isinData)) } };
 };
 

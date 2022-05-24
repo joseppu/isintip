@@ -42,6 +42,7 @@ type Props = {
   modelName: string;
 };
 
+
 const Table = ({ dataProp, columnNames, modelName }: Props) => {
   const pluralModelName = pluralize(modelName); //For header
   const pluralModelNameLowercase = pluralModelName.toLowerCase(); //For link and description text
@@ -79,7 +80,7 @@ const Table = ({ dataProp, columnNames, modelName }: Props) => {
     setPageSize,
     setGlobalFilter,
     state: { pageIndex, pageSize },
-  } = useTable({ columns, data }, useGlobalFilter, useSortBy, usePagination);
+  } = useTable({ columns, data, initialState: { pageSize: 50 } }, useGlobalFilter, useSortBy, usePagination);
 
   const handleFilterInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
@@ -221,7 +222,7 @@ const Table = ({ dataProp, columnNames, modelName }: Props) => {
               setPageSize(Number(e.target.value));
             }}
           >
-            {[10, 20, 30, 40, 50].map((pageSize) => (
+            {[50, 100].map((pageSize) => (
               <option key={pageSize} value={pageSize}>
                 Show {pageSize}
               </option>
