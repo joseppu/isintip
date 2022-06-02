@@ -2,7 +2,8 @@
 
 #### DEV DB OVER 100MB
 dev.db
-
+*.env
+.env
 # dependencies
 /node_modules
 /.pnp
