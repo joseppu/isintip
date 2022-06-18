@@ -37,8 +37,9 @@ export default function Faq() {
   return (
     <div className="bg-gray-50">
       <div className="px-4 py-12 mx-auto max-w-7xl sm:py-16 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
-          <h2 className="text-3xl font-extrabold text-center text-gray-900 sm:text-4xl">
+        <div className="max-w-3xl mx-auto divide-gray-200">
+          <p className="text-center uppercase text-violet-500">FAQ</p>
+          <h2 className="text-3xl font-extrabold text-center text-gray-800 sm:text-4xl">
             Frequently asked questions
           </h2>
           <dl className="mt-6 space-y-6 divide-y divide-gray-200">

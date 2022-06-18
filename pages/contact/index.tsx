@@ -1,12 +1,27 @@
 import React from "react";
+import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 
 const contact = () => {
   return (
     <div>
-        <Navbar/>
-      <section className="relative text-gray-600 body-font">
-        <div className="absolute inset-0 bg-gray-300">
+      <Navbar />
+      <div className="">
+        <div className="py-12 lg:py-16">
+          <div className="relative z-10 max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
+            <h1 className="text-4xl font-extrabold tracking-tight text-warm-gray-900 sm:text-5xl lg:text-6xl">
+              Get in touch
+            </h1>
+            <p className="max-w-3xl mt-6 text-xl text-warm-gray-500">
+              Vel nunc non ut montes, viverra tempor. Proin lectus nibh
+              phasellus morbi non morbi. In elementum urna ut volutpat. Sagittis
+              et vel et fermentum amet consequat.
+            </p>
+          </div>
+        </div>
+      </div>
+      <section className="relative max-w-5xl mx-auto text-gray-600 sm:px-6 body-font lg:px-8">
+        <div className="absolute inset-0 px-4 sm:px-6 lg:px-8">
           <iframe
             width="100%"
             height="100%"
@@ -17,7 +32,7 @@ const contact = () => {
           ></iframe>
         </div>
         <div className="container flex px-5 py-24 mx-auto">
-          <div className="relative z-10 flex flex-col w-full p-8 mt-10 bg-white rounded-lg shadow-md lg:w-1/3 md:w-1/2 md:ml-auto md:mt-0">
+          <div className="relative z-10 flex flex-col w-full p-8 mt-10 ml-auto bg-white rounded-lg shadow-md lg:w-1/3 sm:w-1/2 md:w-1/2 md:mt-0">
             <h2 className="mb-1 text-lg font-medium text-gray-900 title-font">
               Feedback
             </h2>
@@ -61,6 +76,52 @@ const contact = () => {
           </div>
         </div>
       </section>
+      <section aria-labelledby="offices-heading">
+        <div className="max-w-5xl px-4 py-12 mx-auto sm:py-16 sm:px-6 lg:px-8">
+          <h2
+            id="offices-heading"
+            className="text-3xl font-extrabold text-warm-gray-900"
+          >
+            Our Offices
+          </h2>
+          <p className="max-w-3xl mt-6 text-lg text-warm-gray-500">
+            Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
+            id malesuada non. Cras aliquet purus dui laoreet diam sed lacus,
+            fames.
+          </p>
+          <div className="grid grid-cols-1 gap-10 mt-10 sm:grid-cols-2">
+            <div>
+              <h3 className="text-lg font-medium text-warm-gray-900">
+                Istanbul
+              </h3>
+              <p className="mt-2 text-base text-warm-gray-500">
+                <span className="block">
+                  Aziz Mahmut Hüdayi Mahallesi Bakıcı Sk. No:1 Daire: 4 Üsküdar
+                  / İstanbul / TÜRKİYE Aziz Mahmut Hüdayi - Üsküdar 34000
+                  Türkiye
+                </span>
+                <span className="block">Phone: +90 216 201 21 24</span>
+                <span className="block">Fax: +90 216 201 21 26</span>
+                <span className="block">Handy: +90 506 892 82 09</span>
+                <span className="block">Email: info@isin-tip.com</span>
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-warm-gray-900">Ankara</h3>
+              <p className="mt-2 text-base text-warm-gray-500">
+                <span className="block">
+                  Ziya Gökalp Cad. İcel Sk. Erdim Apt. Bina No:7 Kat:3 Daire 10
+                  Kızılay-Ankara 06100 Türkiye
+                </span>
+                <span className="block">Phone: +90 312 419 77 38</span>
+                <span className="block">Email: teklif@isin-tip.com</span>
+                <span className="block">Email: ibrikci@yandex.com</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 };

@@ -1,10 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Faq from "../components/Faq";
+import FeatureGrid from "../components/FeatureGrid";
 import Filler from "../components/Filler";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import Navbar from "../components/Navbar";
+import Services from "../components/Services";
+import Stats from "../components/Stats";
+import TrialSizeSample from "../components/TrialSizeSample";
 
 const Home: NextPage = () => {
   return (
@@ -16,10 +20,11 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
       <HeroSection />
-      <Filler/>
-      <Faq/>
-      <Filler/>
-      <Footer/>
+      <Services />
+      <Stats />
+      <TrialSizeSample />
+      <Faq />
+      <Footer />
     </div>
   );
 };

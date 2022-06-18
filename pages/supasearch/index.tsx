@@ -1,6 +1,7 @@
 import { supabase } from "../../utils/supabase";
 import { GetServerSideProps } from "next";
 import SearchTable from "../../components/SearchTable";
+import Navbar from "../../components/Navbar";
 
 export const getPagination = (page, size) => {
   const limit = size ? +size : 3;
@@ -10,39 +11,74 @@ export const getPagination = (page, size) => {
   return { from, to };
 };
 
-export async function getServerSideProps({ query: { page = 0 } }) {
-  const { from, to } = getPagination(page, 50);
+export async function getServerSideProps({ query: { page = 0, search = "" } }) {
+  if (search === "") {
+    const { from, to } = getPagination(page, 50);
+    const { data, error, count } = await supabase
+      .from("isin_data_without_categories")
+      .select("catalog_number, product_name, amount", { count: "exact" })
+      .order("catalog_number", { ascending: true })
+      .range(from, to);
 
-  const { data, error, count } = await supabase
-    .from("isin_data_without_categories")
-    .select("*", { count: "exact" })
-    .textSearch('fts', "c_fms")
-    .order("catalog_number", { ascending: true })
-    .range(from, to);
+    let totalPage = Math.ceil(count / 50);
 
-  let totalPage = Math.ceil(count / 50);
+    if (error) {
+      throw new Error(error);
+    }
 
-  if (error) {
-    throw new Error(error);
+    return {
+      props: {
+        data,
+        count: count,
+        page: +page,
+        totalPage,
+        search,
+      },
+    };
+  } else {
+    const { from, to } = getPagination(page, 50);
+    const { data, error, count } = await supabase
+      .from("isin_data_without_categories")
+      .select("catalog_number, product_name, amount", { count: "exact" })
+      .textSearch("fts", search)
+      .order("catalog_number", { ascending: true })
+      .range(from, to);
+
+    let totalPage = Math.ceil(count / 50);
+
+    if (error) {
+      throw new Error(error);
+    }
+
+    return {
+      props: {
+        data,
+        count: count,
+        page: +page,
+        totalPage,
+        search,
+      },
+    };
   }
-
-  return {
-    props: {
-      data,
-      count: count,
-      page: +page,
-      totalPage,
-    },
-  };
 }
 
-export default function Home({ data, count, page, totalPage }) {
+export default function Home({ data, count, page, totalPage, search }) {
   return (
-    <SearchTable
-      dataProp={data}
-      totalPage={totalPage}
-      currentPage={page}
-      columnNames={["catalog_number", "product_name", "amount", "fts"]}
-    />
+    <div>
+      {" "}
+      <Navbar />
+      <SearchTable
+        dataProp={data}
+        totalPage={totalPage}
+        currentPage={page}
+        search={search}
+        columnNames={["catalog_number", "product_name", "amount"]}
+      />
+    </div>
   );
 }
+
+/*
+[ { header: "catalog_number", accessor: "Catalog Number" }, { header: "product_name", accessor: "Product Name" }, { header: "amount", accessor: "Amount" }, ]
+
+*/

@@ -1,12 +1,24 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const GoodbyeDynamic = dynamic(() => import("../components/TexasClock"));
+
+  const router = useRouter();
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      const { value } = e.currentTarget;
+      router.push(`/supasearch?page=0&search=${value}`);
+    }
+  };
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -15,43 +27,64 @@ export default function Navbar() {
             <div className="flex justify-between h-16">
               <div className="flex px-2 lg:px-0">
                 <div className="flex items-center flex-shrink-0">
-                  <img
-                    className="block w-auto h-8 lg:hidden"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden w-auto h-8 lg:block"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                    alt="Workflow"
-                  />
+                  <Link href="/">
+                    <a>
+                      <img
+                        className="block w-auto h-8 lg:hidden"
+                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                        alt="Workflow"
+                      />
+                    </a>
+                  </Link>
+                  <Link href="/">
+                    <a>
+                      <img
+                        className="hidden w-auto h-8 lg:block"
+                        src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
+                        alt="Workflow"
+                      />
+                    </a>
+                  </Link>
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <a
-                    href="#"
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900 border-b-2 border-indigo-500"
-                  >
-                    Dashboard
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700"
-                  >
-                    Team
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700"
-                  >
-                    Projects
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700"
-                  >
-                    Calendar
-                  </a>
+                  <Link href="/">
+                    <a
+                      className={classNames(
+                        "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
+                        router.asPath.endsWith("/")
+                          ? "border-violet-500 text-gray-900"
+                          : "text-gray-500  border-transparent hover:border-gray-300 hover:text-gray-700"
+                      )}
+                    >
+                      Home
+                    </a>
+                  </Link>
+                  <Link href="supasearch">
+                    <a
+                      className={classNames(
+                        "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
+                        router.asPath.includes("supasearch")
+                          ? "border-violet-500 text-gray-900"
+                          : "text-gray-500  border-transparent hover:border-gray-300 hover:text-gray-700"
+                      )}
+                    >
+                      Products
+                    </a>
+                  </Link>
+                  <Link href="contact">
+                    <a
+                      className={classNames(
+                        "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
+                        router.asPath.includes("/contact")
+                          ? "border-violet-500 text-gray-900"
+                          : "text-gray-500  border-transparent hover:border-gray-300 hover:text-gray-700"
+                      )}
+                    >
+                      Contact
+                    </a>
+                  </Link>
+                  <GoodbyeDynamic />
                 </div>
               </div>
               <div className="flex items-center justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
@@ -69,16 +102,17 @@ export default function Navbar() {
                     <input
                       id="search"
                       name="search"
-                      className="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-violet-500 focus:border-violet-500 sm:text-sm"
                       placeholder="Search"
                       type="search"
+                      onKeyDown={handleKeyDown}
                     />
                   </div>
                 </div>
               </div>
               <div className="flex items-center lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-violet-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block w-6 h-6" aria-hidden="true" />
@@ -95,31 +129,39 @@ export default function Navbar() {
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-indigo-700 border-l-4 border-indigo-500 bg-indigo-50"
+                href="/"
+                className={classNames(
+                  "block py-2 pl-3 pr-4 text-base font-medium border-l-4 ",
+                  router.asPath.endsWith("/")
+                    ? "bg-violet-50 border-violet-500 text-violet-700"
+                    : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
+                )}
               >
-                Dashboard
+                Home
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
+                href="supasearch"
+                className={classNames(
+                  "block py-2 pl-3 pr-4 text-base font-medium border-l-4 ",
+                  router.asPath.includes("/supasearch")
+                    ? "bg-violet-50 border-violet-500 text-violet-700"
+                    : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
+                )}
               >
-                Team
+                Products
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
+                href="contact"
+                className={classNames(
+                  "block py-2 pl-3 pr-4 text-base font-medium border-l-4 ",
+                  router.asPath.includes("/contact")
+                    ? "bg-violet-50 border-violet-500 text-violet-700"
+                    : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
+                )}
               >
-                Projects
-              </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
-              >
-                Calendar
+                Contact
               </Disclosure.Button>
             </div>
           </Disclosure.Panel>

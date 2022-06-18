@@ -75,7 +75,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="bg-white">
-      <div className="px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
+      <div className="px-4 py-8 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
         <nav
           className="flex flex-wrap justify-center -mx-5 -my-2"
           aria-label="Footer"
@@ -104,7 +104,7 @@ export default function Footer() {
           ))}
         </div>
         <p className="mt-8 text-base text-center text-gray-400">
-          &copy; 2020 Workflow, Inc. All rights reserved.
+          &copy; 2022 Workflow, Inc. All rights reserved.
         </p>
       </div>
     </footer>

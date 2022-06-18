@@ -52,6 +52,7 @@ const SearchTable = ({
   modelName,
   currentPage,
   totalPage,
+  search,
 }: Props) => {
   const data = useMemo(() => [...dataProp], [dataProp]);
   const columns = useMemo(() => {
@@ -101,46 +102,31 @@ const SearchTable = ({
   );
   const router = useRouter();
 
-  const handleFilterInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
-
-    setGlobalFilter(value);
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      const { value } = e.currentTarget;
+      router.push(`/supasearch?page=0&search=${value}`);
+    }
   };
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="max-w-5xl px-4 mx-auto mt-4 sm:px-6 lg:px-8 ">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h1 className="text-xl font-semibold text-gray-900">Model NAME </h1>
+          <h1 className="text-xl font-semibold text-gray-900">Product List</h1>
           <p className="mt-2 text-sm text-gray-700">
-            A list of all the PLURAL MODEL NAME in our registry including their
-            {" " +
-              columnNames
-                ?.map((i) => i)
-                .slice(1)
-                .join(", ")
-                .replace(/,(?!.*,)/, " and") +
-              "."}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+            possimus tenetur in laborum iure at.{" "}
           </p>
-        </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-          <Link href={`/modelname/create`} passHref>
-            <button
-              type="button"
-              className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
-            >
-              Add model name
-            </button>
-          </Link>
         </div>
       </div>
       <div className="flex flex-col mt-8">
         <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
           <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:py-5">
-            <div className="mt-1 sm:mt-0 sm:col-span-2">
+            <div className="mt-1 ml-3 sm:ml-6 sm:mt-0 sm:col-span-2">
               <input
                 type="text"
-                onChange={handleFilterInputChange}
+                onKeyDown={handleKeyDown}
                 id="search"
                 placeholder="Search..."
                 className="block w-full max-w-lg border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"
@@ -170,9 +156,7 @@ const SearchTable = ({
                           className="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
                           key={column.id}
                         >
-                          {columnIdx !== headerGroup.headers.length - 1
-                            ? column.render("Header")
-                            : null}
+                          {column.render("Header")}
                           <span>
                             {column.isSorted
                               ? column.isSortedDesc
@@ -198,15 +182,7 @@ const SearchTable = ({
                             )}
                             key={cell.value}
                           >
-                            {cellIdx !== row.cells.length - 1 ? (
-                              cell.render("Cell")
-                            ) : (
-                              <Link href={`/modelismi/${cell.value}`} passHref>
-                                <a className="text-indigo-600 hover:text-indigo-900">
-                                  Edit
-                                </a>
-                              </Link>
-                            )}
+                            {cell.render("Cell")}
                           </td>
                         ))}
                       </tr>
@@ -249,21 +225,31 @@ const SearchTable = ({
         >
           <PageButton
             className="rounded-l-md"
-            onClick={() => router.push(`/supatable?page=${0}`)}
+            onClick={() =>
+              router.push(`/supasearch?page=${0}&search=${search}`)
+            }
             disabled={currentPage === 0}
           >
             <span className="sr-only">First</span>
             <ChevronDoubleLeftIcon className="w-5 h-5" aria-hidden="true" />
           </PageButton>
           <PageButton
-            onClick={() => router.push(`/supatable?page=${currentPage - 1}`)}
+            onClick={() =>
+              router.push(
+                `/supasearch?page=${currentPage - 1}&search=${search}`
+              )
+            }
             disabled={currentPage === 0}
           >
             <span className="sr-only">Previous</span>
             <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
           </PageButton>
           <PageButton
-            onClick={() => router.push(`/supatable?page=${currentPage + 1}`)}
+            onClick={() =>
+              router.push(
+                `/supasearch?page=${currentPage + 1}&search=${search}`
+              )
+            }
             disabled={currentPage === totalPage - 1}
           >
             <span className="sr-only">Next</span>
@@ -271,7 +257,9 @@ const SearchTable = ({
           </PageButton>
           <PageButton
             className="rounded-r-md"
-            onClick={() => router.push(`/supatable?page=${totalPage - 1}`)}
+            onClick={() =>
+              router.push(`/supasearch?page=${totalPage - 1}&search=${search}`)
+            }
             disabled={currentPage === totalPage - 1}
           >
             <span className="sr-only">Last</span>
