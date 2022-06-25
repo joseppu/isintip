@@ -16,7 +16,7 @@ export default function Navbar() {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       const { value } = e.currentTarget;
-      router.push(`/supasearch?page=0&search=${value}`);
+      router.push(`/products?page=0&search=${value}`);
     }
   };
   return (
@@ -60,11 +60,11 @@ export default function Navbar() {
                       Home
                     </a>
                   </Link>
-                  <Link href="supasearch">
+                  <Link href="products">
                     <a
                       className={classNames(
                         "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
-                        router.asPath.includes("supasearch")
+                        router.asPath.includes("products")
                           ? "border-violet-500 text-gray-900"
                           : "text-gray-500  border-transparent hover:border-gray-300 hover:text-gray-700"
                       )}
@@ -141,10 +141,10 @@ export default function Navbar() {
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="supasearch"
+                href="products"
                 className={classNames(
                   "block py-2 pl-3 pr-4 text-base font-medium border-l-4 ",
-                  router.asPath.includes("/supasearch")
+                  router.asPath.includes("/products")
                     ? "bg-violet-50 border-violet-500 text-violet-700"
                     : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
                 )}

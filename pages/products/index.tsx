@@ -1,29 +1,85 @@
-import { isinData } from "@prisma/client";
+import { supabase } from "../../utils/supabase";
 import { GetServerSideProps } from "next";
-import Table from "../../components/Table";
-import prisma from "../../lib/prismaClient";
+import SearchTable from "../../components/SearchTable";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
-type Props = {
-  isinData: isinData[];
+export const getPagination = (page, size) => {
+  const limit = size ? +size : 3;
+  const from = page ? page * limit : 0;
+  const to = page ? from + size - 1 : size - 1;
+
+  return { from, to };
 };
 
-const IsinList = ({ isinData }: Props) => {
+export async function getServerSideProps({ query: { page = 0, search = "" } }) {
+  if (search === "") {
+    const { from, to } = getPagination(page, 50);
+    const { data, error, count } = await supabase
+      .from("isin_data_without_categories")
+      .select("catalog_number, product_name, amount", { count: "exact" })
+      .order("catalog_number", { ascending: true })
+      .range(from, to);
+
+    let totalPage = Math.ceil(count / 50);
+
+    if (error) {
+      throw new Error(error);
+    }
+
+    return {
+      props: {
+        data,
+        count: count,
+        page: +page,
+        totalPage,
+        search,
+      },
+    };
+  } else {
+    const { from, to } = getPagination(page, 50);
+    const { data, error, count } = await supabase
+      .from("isin_data_without_categories")
+      .select("catalog_number, product_name, amount", { count: "exact" })
+      .textSearch("fts", search)
+      .order("catalog_number", { ascending: true })
+      .range(from, to);
+
+    let totalPage = Math.ceil(count / 50);
+
+    if (error) {
+      throw new Error(error);
+    }
+
+    return {
+      props: {
+        data,
+        count: count,
+        page: +page,
+        totalPage,
+        search,
+      },
+    };
+  }
+}
+
+export default function Home({ data, count, page, totalPage, search }) {
   return (
-    <Table
-      modelName="isinData"
-      dataProp={isinData}
-      columnNames={["CatalogNumber", "ProductName", "Amount", "SQCategory"]}
-    />
+    <div>
+      {" "}
+      <Navbar />
+      <SearchTable
+        dataProp={data}
+        totalPage={totalPage}
+        currentPage={page}
+        search={search}
+        columnNames={[
+          { header: "Catalog Number", accessor: "catalog_number" },
+          { header: "Product Name", accessor: "product_name" },
+          { header: "Amount", accessor: "amount" },
+        ]}
+      />
+      <Footer />
+    </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  console.log(context.query);
-
-  const isinCount = await prisma.isinData.count()
-  console.log(isinCount)
-  const isinData = await prisma.isinData.findMany();
-  return { props: { isinData: JSON.parse(JSON.stringify(isinData)) } };
-};
-
-export default IsinList;
+}

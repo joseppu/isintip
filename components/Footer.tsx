@@ -1,11 +1,10 @@
+import Link from "next/link";
+
 const navigation = {
   main: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Accessibility", href: "#" },
-    { name: "Partners", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "Products", href: "/products" },
+    { name: "Contact", href: "/contact" },
   ],
   social: [
     {
@@ -93,18 +92,16 @@ export default function Footer() {
         </nav>
         <div className="flex justify-center mt-8 space-x-6">
           {navigation.social.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-gray-400 hover:text-gray-500"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="w-6 h-6" aria-hidden="true" />
-            </a>
+            <Link href={item.href} key={item.name}>
+              <a className="text-gray-400 hover:text-gray-500">
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="w-6 h-6" aria-hidden="true" />
+              </a>
+            </Link>
           ))}
         </div>
         <p className="mt-8 text-base text-center text-gray-400">
-          &copy; 2022 Workflow, Inc. All rights reserved.
+          &copy; 2022 Isin Medical, All rights reserved.
         </p>
       </div>
     </footer>

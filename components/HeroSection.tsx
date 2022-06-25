@@ -93,13 +93,12 @@ export default function HeroSection() {
               <span className="block text-violet-600 xl:inline">success</span>
             </h1>
             <p className="max-w-md mx-auto mt-3 text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+            As a trusted distributor of Santa Cruz Biotechnology (SCBT), <span className="font-semibold text-violet-600"> Isin Medical </span>
+            handles your deliveries end to end.
             </p>
             <div className="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
-                <Link href="supasearch">
+                <Link href="products">
                   <a className="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white border border-transparent rounded-md bg-violet-600 hover:bg-violet-700 md:py-4 md:text-lg md:px-10">
                     Check Products
                   </a>
