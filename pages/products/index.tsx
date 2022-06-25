@@ -1,5 +1,4 @@
 import { supabase } from "../../utils/supabase";
-import { GetServerSideProps } from "next";
 import SearchTable from "../../components/SearchTable";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -63,7 +62,7 @@ export async function getServerSideProps({ query: { page = 0, search = "" } }) {
   }
 }
 
-export default function Home({ data, count, page, totalPage, search }) {
+export default function products({ data, page, totalPage, search }) {
   return (
     <div>
       {" "}

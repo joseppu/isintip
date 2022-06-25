@@ -4,7 +4,7 @@ import React from "react";
 import { useRef } from "react";
 
 const ProductHero = () => {
-  const heroProductSearchRef = useRef("");
+  const heroProductSearchRef = useRef();
   const router = useRouter();
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
