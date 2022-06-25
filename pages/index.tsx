@@ -14,6 +14,8 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Isin Medical</title>
+        <html lang="en" />
+        <meta charSet="UTF-8" />
         <meta
           name="description"
           content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isin Medical handles your deliveries end to end."
