@@ -14,18 +14,18 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Isin Medical</title>
-        <meta name="description" content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isin Medical handles your deliveries end to end." />
+        <meta
+          name="description"
+          content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isin Medical handles your deliveries end to end."
+        />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Isin Medical" />
-        <meta property="og:url" content="http://www.isin-tip.com" />{" "}
+        <meta property="og:url" content="http://www.isin-tip.com" />
         <meta
           property="og:description"
           content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isin Medical handles your deliveries end to end."
         />
-        <meta
-          property="og:image"
-          content="/biochemistry-lab.jpg"
-        />
+        <meta property="og:image" content="/biochemistry-lab.jpg" />
       </Head>
       <Navbar />
       <HeroSection />

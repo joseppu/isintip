@@ -50,7 +50,7 @@ const contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                className="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
               />
             </div>
             <div className="relative mb-4">
@@ -63,10 +63,10 @@ const contact = () => {
               <textarea
                 id="message"
                 name="message"
-                className="w-full h-32 px-3 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                className="w-full h-32 px-3 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
               ></textarea>
             </div>
-            <button className="px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600">
+            <button className="px-6 py-2 text-lg text-white border-0 rounded bg-violet-500 focus:outline-none hover:bg-violet-600">
               Button
             </button>
             <p className="mt-3 text-xs text-gray-500">
@@ -100,10 +100,35 @@ const contact = () => {
                   / İstanbul / TÜRKİYE Aziz Mahmut Hüdayi - Üsküdar 34000
                   Türkiye
                 </span>
-                <span className="block">Phone: +90 216 201 21 24</span>
-                <span className="block">Fax: +90 216 201 21 26</span>
-                <span className="block">Handy: +90 506 892 82 09</span>
-                <span className="block">Email: info@isin-tip.com</span>
+                <span className="block">
+                  Mobile:{" "}
+                  <a className="hover:text-violet-600" href="tel:+905068928209">
+                    {" "}
+                    +90 506 892 82 09
+                  </a>
+                </span>
+                <span className="block">
+                  Phone:{" "}
+                  <a className="hover:text-violet-600" href="tel:+902162012124">
+                    +90 216 201 21 24
+                  </a>
+                </span>
+                <span className="block">
+                  Fax:{" "}
+                  <a className="hover:text-violet-600" href="tel:+902162012126">
+                    +90 216 201 21 26
+                  </a>
+                </span>
+                <span className="block">
+                  Email:{" "}
+                  <a
+                    className="hover:text-violet-600"
+                    href="mailto:info@isin-tip.com"
+                  >
+                    {" "}
+                    info@isin-tip.com
+                  </a>
+                </span>
               </p>
             </div>
             <div>
@@ -113,9 +138,42 @@ const contact = () => {
                   Ziya Gökalp Cad. İcel Sk. Erdim Apt. Bina No:7 Kat:3 Daire 10
                   Kızılay-Ankara 06100 Türkiye
                 </span>
-                <span className="block">Phone: +90 312 419 77 38</span>
-                <span className="block">Email: teklif@isin-tip.com</span>
-                <span className="block">Email: ibrikci@yandex.com</span>
+                <span className="block">
+                  Phone:{" "}
+                  <a className="hover:text-violet-600" href="tel:+903124197738">
+                    {" "}
+                    +90 312 419 77 38{" "}
+                  </a>
+                </span>
+                <span className="block">
+                  Email:{" "}
+                  <a
+                    className="hover:text-violet-600"
+                    href="mailto:info@isin-tip.com"
+                  >
+                    {" "}
+                    info@isin-tip.com
+                  </a>
+                </span>
+
+                <span className="block">
+                  Email:{" "}
+                  <a
+                    className="hover:text-violet-600"
+                    href="mailto:teklif@isin-tip.com"
+                  >
+                    teklif@isin-tip.com
+                  </a>
+                </span>
+                <span className="block">
+                  Email:{" "}
+                  <a
+                    className="hover:text-violet-600"
+                    href="mailto:ibrikci@yandex.com"
+                  >
+                    ibrikci@yandex.com
+                  </a>
+                </span>
               </p>
             </div>
           </div>
