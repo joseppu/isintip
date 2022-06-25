@@ -11,10 +11,9 @@ import TrialSizeSample from "../components/TrialSizeSample";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Isin Medical</title>
-        <html lang="en" />
         <meta charSet="UTF-8" />
         <meta
           name="description"
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
       <TrialSizeSample />
       <Faq />
       <Footer />
-    </div>
+    </>
   );
 };
 
