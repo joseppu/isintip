@@ -14,6 +14,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Isin Medical</title>
+        <meta lang="en" />
         <meta charSet="UTF-8" />
         <meta
           name="description"
