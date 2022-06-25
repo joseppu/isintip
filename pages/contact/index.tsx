@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 
 const contact = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <div className="">
         <div className="py-12 lg:py-16">
@@ -180,7 +180,7 @@ const contact = () => {
         </div>
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 

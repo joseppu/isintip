@@ -64,8 +64,7 @@ export async function getServerSideProps({ query: { page = 0, search = "" } }) {
 
 export default function products({ data, page, totalPage, search }) {
   return (
-    <div>
-      {" "}
+    <>
       <Navbar />
       <SearchTable
         dataProp={data}
@@ -79,6 +78,6 @@ export default function products({ data, page, totalPage, search }) {
         ]}
       />
       <Footer />
-    </div>
+    </>
   );
 }
