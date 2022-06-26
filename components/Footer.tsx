@@ -100,8 +100,8 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <p className="mt-8 text-base text-center text-gray-400">
-          &copy; 2022 Isin Medical, All rights reserved.
+        <p className="mt-8 text-base text-center text-gray-500">
+          &copy; 2022 Isintip Biotech, All rights reserved.
         </p>
       </div>
     </footer>

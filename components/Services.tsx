@@ -3,7 +3,7 @@ import React from "react";
 function Services() {
   return (
     <div className="flex-col items-center justify-center py-10">
-      <p className="text-center uppercase text-violet-500">Services</p>
+      <p className="text-center uppercase text-violet-600">Services</p>
       <h2 className="text-5xl text-center">
         Our Best<span className="font-bold"> Services</span>
       </h2>

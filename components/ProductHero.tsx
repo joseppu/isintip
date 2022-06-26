@@ -65,7 +65,7 @@ const ProductHero = () => {
               </div>
             </div>
           </div>
-          <p className="w-full mt-2 mb-8 text-sm text-violet-400 md:ml-1">
+          <p className="w-full mt-2 mb-8 text-sm text-violet-600 md:ml-1">
             More than 850,000 products available
           </p>
         </div>

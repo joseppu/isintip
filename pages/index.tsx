@@ -14,13 +14,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Isin Medical</title>
-        <meta lang="en" />
-        <meta charSet="UTF-8" />
         <meta
           name="description"
           content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isin Medical handles your deliveries end to end."
         />
-        <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Isin Medical" />
         <meta property="og:url" content="http://www.isin-tip.com" />
         <meta

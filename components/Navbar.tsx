@@ -1,4 +1,4 @@
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
@@ -10,7 +10,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const GoodbyeDynamic = dynamic(() => import("../components/TexasClock"));
+  const DynamicTexasClock = dynamic(() => import("../components/TexasClock"));
 
   const router = useRouter();
   const handleKeyDown = (e) => {
@@ -24,34 +24,24 @@ export default function Navbar() {
       {({ open }) => (
         <>
           <div className="max-w-5xl px-2 mx-auto sm:px-4 lg:px-8">
-            <div className="flex justify-between h-16">
+            <div className="flex justify-between h-20">
               <div className="flex px-2 lg:px-0">
                 <div className="flex items-center flex-shrink-0">
                   <Link href="/">
-                    <a>
+                    <a className="select-none">
                       <img
-                        className="block w-auto h-8 lg:hidden"
-                        src="/workflow-mark-indigo-600.svg"
-                        alt="Workflow"
-                      />
-                    </a>
-                  </Link>
-                  <Link href="/">
-                    <a>
-                      <img
-                        className="hidden w-auto h-8 lg:block"
-                        src="/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                        alt="Workflow"
+                        className="h-20 w-44"
+                        src="/isintip.jpg"
+                        alt="isintip logo"
                       />
                     </a>
                   </Link>
                 </div>
-                <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
+                <div className="hidden select-none lg:ml-6 lg:flex lg:space-x-8">
                   <Link href="/">
                     <a
                       className={classNames(
-                        "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
+                        "inline-flex items-center px-1 pt-1 text-md font-medium border-b-2 ",
                         router.asPath.endsWith("/")
                           ? "border-violet-500 text-gray-900"
                           : "text-gray-500  border-transparent hover:border-gray-300 hover:text-gray-700"
@@ -63,7 +53,7 @@ export default function Navbar() {
                   <Link href="products">
                     <a
                       className={classNames(
-                        "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
+                        "inline-flex items-center px-1 pt-1 text-md font-medium border-b-2 ",
                         router.asPath.includes("products")
                           ? "border-violet-500 text-gray-900"
                           : "text-gray-500  border-transparent hover:border-gray-300 hover:text-gray-700"
@@ -75,7 +65,7 @@ export default function Navbar() {
                   <Link href="contact">
                     <a
                       className={classNames(
-                        "inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 ",
+                        "inline-flex items-center px-1 pt-1 text-md font-medium border-b-2 ",
                         router.asPath.includes("/contact")
                           ? "border-violet-500 text-gray-900"
                           : "text-gray-500  border-transparent hover:border-gray-300 hover:text-gray-700"
@@ -84,7 +74,7 @@ export default function Navbar() {
                       Contact
                     </a>
                   </Link>
-                  <GoodbyeDynamic />
+                  <DynamicTexasClock />
                 </div>
               </div>
               <div className="flex items-center justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
