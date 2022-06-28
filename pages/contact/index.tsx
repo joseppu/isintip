@@ -96,10 +96,7 @@ const contact = () => {
               </h3>
               <p className="mt-2 text-base text-warm-gray-500">
                 <span className="block">
-                  Aziz Mahmut Hüdayi Mahallesi Bakıcı Sk. No:1 Daire: 4 Üsküdar
-                  / İstanbul / TÜRKİYE Aziz Mahmut Hüdayi - Üsküdar 34000
-                  Türkiye
-                </span>
+                  Aziz Mahmut Hüdayi Mahallesi, Bakıcı Sk. No: 1 Daire: 4 <br /> Üsküdar/İstanbul 34000 TÜRKİYE </span>
                 <span className="block">
                   Mobile:{" "}
                   <a className="hover:text-violet-600" href="tel:+905068928209">
@@ -135,8 +132,8 @@ const contact = () => {
               <h3 className="text-lg font-medium text-warm-gray-900">Ankara</h3>
               <p className="mt-2 text-base text-warm-gray-500">
                 <span className="block">
-                  Ziya Gökalp Cad. İcel Sk. Erdim Apt. Bina No:7 Kat:3 Daire 10
-                  Kızılay-Ankara 06100 Türkiye
+                  Ziya Gökalp Cad. İcel Sk. Erdim Apt. Bina No: 7 Daire: 10 <br />
+                  Kızılay/Ankara 06100 TÜRKİYE
                 </span>
                 <span className="block">
                   Phone:{" "}
