@@ -13,16 +13,16 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Isin Medical</title>
+        <title>Isintip Biotechnology</title>
         <meta
           name="description"
-          content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isin Medical handles your deliveries end to end."
+          content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isintip Biotechnology handles your deliveries end to end."
         />
-        <meta property="og:title" content="Isin Medical" />
+        <meta property="og:title" content="Isintip Biotechnology" />
         <meta property="og:url" content="http://www.isin-tip.com" />
         <meta
           property="og:description"
-          content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isin Medical handles your deliveries end to end."
+          content="As a trusted distributor of Santa Cruz Biotechnology (SCBT), Isintip Biotechnology handles your deliveries end to end."
         />
         <meta property="og:image" content="/biochemistry-lab.jpg" />
       </Head>

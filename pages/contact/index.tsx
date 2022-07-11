@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
@@ -5,17 +6,35 @@ import Navbar from "../../components/Navbar";
 const contact = () => {
   return (
     <>
+      <Head>
+        <title>Isintip Biotechnology, Get in touch</title>
+        <meta
+          name="description"
+          content="Isintip Biotechnology has been active in both domestic and international markets for more than 20 years. With this expertise and experience, we are able to provide the best results to our clients."
+        />
+        <meta
+          property="og:title"
+          content="Isintip Biotechnology, Get in touch"
+        />
+        <meta property="og:url" content="http://www.isin-tip.com/contact" />
+        <meta
+          property="og:description"
+          content="Isintip Biotechnology has been active in both domestic and international markets for more than 20 years. With this expertise and experience, we are able to provide the best results to our clients."
+        />
+        <meta property="og:image" content="/biochemistry-lab.jpg" />
+      </Head>
       <Navbar />
 
       <div className="py-12">
         <div className="relative z-10 max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold tracking-tight text-warm-gray-900 sm:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-gray-800 sm:text-4xl lg:text-5xl">
             Get in touch
           </h1>
-          <p className="max-w-3xl mt-6 text-xl text-warm-gray-500">
-            Vel nunc non ut montes, viverra tempor. Proin lectus nibh phasellus
-            morbi non morbi. In elementum urna ut volutpat. Sagittis et vel et
-            fermentum amet consequat.
+          <p className="max-w-3xl mt-6 text-xl text-gray-600">
+            Isintip Biotechnology has been active in both domestic and
+            international markets for more than 20 years. With this expertise
+            and experience, we are able to provide the best results to our
+            clients.
           </p>
         </div>
       </div>
@@ -32,12 +51,17 @@ const contact = () => {
           ></iframe>
         </div>
         <div className="container flex px-5 py-24 mx-auto">
-          <div className="relative z-10 flex flex-col w-full p-8 mt-10 ml-auto bg-white rounded-lg shadow-md lg:w-1/3 sm:w-1/2 md:w-1/2 md:mt-0">
+          <form
+            action="https://formsubmit.co/info@isin-tip.com"
+            method="POST"
+            className="relative z-10 flex flex-col w-full p-8 mt-10 ml-auto bg-white rounded-lg shadow-md lg:w-1/3 sm:w-1/2 md:w-1/2 md:mt-0"
+          >
             <h2 className="mb-1 text-lg font-medium text-gray-900 title-font">
-              Feedback
+              Contact us
             </h2>
             <p className="mb-5 leading-relaxed text-gray-600">
-              Post-ironic portland shabby chic echo park, banjo fashion axe
+              You can reach us by filling this form or from numbers and emails
+              provided below
             </p>
             <div className="relative mb-4">
               <label
@@ -66,28 +90,26 @@ const contact = () => {
                 className="w-full h-32 px-3 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
               ></textarea>
             </div>
-            <button className="px-6 py-2 text-lg text-white border-0 rounded bg-violet-500 focus:outline-none hover:bg-violet-600">
-              Button
+            <button
+              type="submit"
+              className="px-6 py-2 text-lg text-white border-0 rounded bg-violet-500 focus:outline-none hover:bg-violet-600"
+            >
+              Send
             </button>
-            <p className="mt-3 text-xs text-gray-500">
-              Chicharrones blog helvetica normcore iceland tousled brook viral
-              artisan.
-            </p>
-          </div>
+          </form>
         </div>
       </section>
       <section aria-labelledby="offices-heading">
         <div className="max-w-5xl px-4 py-12 mx-auto sm:py-16 sm:px-6 lg:px-8">
           <h2
             id="offices-heading"
-            className="text-3xl font-extrabold text-warm-gray-900"
+            className="text-3xl font-extrabold text-gray-800"
           >
             Our Offices
           </h2>
-          <p className="max-w-3xl mt-6 text-lg text-warm-gray-500">
-            Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
-            id malesuada non. Cras aliquet purus dui laoreet diam sed lacus,
-            fames.
+          <p className="max-w-3xl mt-6 text-lg text-gray-600">
+            With our main office situated in Istanbul, we are serving all around
+            the world.
           </p>
           <div className="grid grid-cols-1 gap-10 mt-10 sm:grid-cols-2">
             <div>
@@ -96,7 +118,9 @@ const contact = () => {
               </h3>
               <p className="mt-2 text-base text-warm-gray-500">
                 <span className="block">
-                  Aziz Mahmut Hüdayi Mahallesi, Bakıcı Sk. No: 1 Daire: 4 <br /> Üsküdar/İstanbul 34000 TÜRKİYE </span>
+                  Aziz Mahmut Hüdayi Mahallesi, Bakıcı Sk. No: 1 Daire: 4 <br />{" "}
+                  Üsküdar/İstanbul 34000 TÜRKİYE{" "}
+                </span>
                 <span className="block">
                   Mobile:{" "}
                   <a className="hover:text-violet-600" href="tel:+905068928209">
@@ -132,7 +156,8 @@ const contact = () => {
               <h3 className="text-lg font-medium text-warm-gray-900">Ankara</h3>
               <p className="mt-2 text-base text-warm-gray-500">
                 <span className="block">
-                  Ziya Gökalp Cad. İcel Sk. Erdim Apt. Bina No: 7 Daire: 10 <br />
+                  Ziya Gökalp Cad. İcel Sk. Erdim Apt. Bina No: 7 Daire: 10{" "}
+                  <br />
                   Kızılay/Ankara 06100 TÜRKİYE
                 </span>
                 <span className="block">

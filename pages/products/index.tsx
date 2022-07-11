@@ -2,6 +2,7 @@ import { supabase } from "../../utils/supabase";
 import SearchTable from "../../components/SearchTable";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import Head from "next/head";
 
 export const getPagination = (page, size) => {
   const limit = size ? +size : 3;
@@ -65,6 +66,22 @@ export async function getServerSideProps({ query: { page = 0, search = "" } }) {
 export default function products({ data, page, totalPage, search }) {
   return (
     <>
+       <Head>
+        <title>Isintip Biotechnology</title>
+        <meta
+          name="description"
+          content="Search through our wide range of laboratory supplies, lab chemicals, antibodies, gene silencers.
+          Unsurpassed quality provided by Santa Cruz Biotechnology (SCBT)."
+        />
+        <meta property="og:title" content="Isintip Biotechnology, Product List" />
+        <meta property="og:url" content="http://www.isin-tip.com/products" />
+        <meta
+          property="og:description"
+          content="Search through our wide range of laboratory supplies, lab chemicals, antibodies, gene silencers.
+          Unsurpassed quality provided by Santa Cruz Biotechnology (SCBT)."
+        />
+        <meta property="og:image" content="/biochemistry-lab.jpg" />
+      </Head>
       <Navbar />
       <SearchTable
         dataProp={data}
