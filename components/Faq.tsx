@@ -5,12 +5,12 @@ const faqs = [
     question:
       "We are in the process of founding a lab, would you be able to assist us in this?",
     answer:
-      "We would be glad to assist in that. There are also certain packages and discounts that help new labs by providing labware and lab supplies. ",
+      "We certainly are able to assist you with it. In addition, we offer specific bundles and special discounts aimed to help new labs by providing labware and lab supplies.",
   },
   {
     question: "How do I contact technical support?",
     answer:
-      "For questions related to delivery and product or questions that require expert scientists help you might take a look at our contact page.",
+      "For having answers to your questions related to delivery and product information, as well as questions that might require an expert opinion, please get in touch with us through contact page.",
   },
 ];
 
