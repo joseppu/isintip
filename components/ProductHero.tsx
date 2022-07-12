@@ -60,7 +60,7 @@ const ProductHero = () => {
                   onClick={handleClick}
                   className="inline-flex px-2 py-2 ml-1 text-white border-0 rounded sm:px-6 bg-violet-600 focus:outline-none hover:bg-violet-700"
                 >
-                  Now
+                  Get
                 </button>
               </div>
             </div>
