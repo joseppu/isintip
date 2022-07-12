@@ -108,7 +108,7 @@ const contact = () => {
             Our Offices
           </h2>
           <p className="max-w-3xl mt-6 text-lg text-gray-600">
-            With our main office situated in Istanbul, we are serving all around
+            With our main office situated in Ankara, we are serving all around
             the world.
           </p>
           <div className="grid grid-cols-1 gap-10 mt-10 sm:grid-cols-2">
@@ -118,7 +118,7 @@ const contact = () => {
               </h3>
               <p className="mt-2 text-base text-warm-gray-500">
                 <span className="block">
-                  Aziz Mahmut Hüdayi Mahallesi, Bakıcı Sk. No: 1 Daire: 4 <br />{" "}
+                  Aziz Mahmut Hüdayi Mahallesi, Bakıcı Sk. No: 1 Daire: 8 <br />{" "}
                   Üsküdar/İstanbul 34000 TÜRKİYE{" "}
                 </span>
                 <span className="block">
