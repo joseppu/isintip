@@ -187,15 +187,6 @@ const contact = () => {
                     teklif@isin-tip.com
                   </a>
                 </span>
-                <span className="block">
-                  Email:{" "}
-                  <a
-                    className="hover:text-violet-600"
-                    href="mailto:ibrikci@yandex.com"
-                  >
-                    ibrikci@yandex.com
-                  </a>
-                </span>
               </p>
             </div>
           </div>
